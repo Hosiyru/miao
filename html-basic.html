@@ -80,9 +80,11 @@
   </dt>
   <hr>
   <h2>Google搜索</h2>
-  <form action="https://www.google.com.hk/webhp?ie=UTF-8&sourceid=UTF" target="_blank">
-    <input type="text">
-    <button>在新窗口打开搜索结果</button>
+  <form action="https://www.google.com.hk/search" target="_blank">
+    <input type="text" name="q">
+    <input type="text" hidden name="ie" value="UTF-8">
+    <input type="text" hidden name="soureid" value="UTF">
+    <button type="submit">在新窗口打开搜索结果</button>
   </form>
   <hr>
   <p>个人信息调查表</p>
