@@ -73,70 +73,75 @@
     <dd>豆豆</dd>
   </dl>
   <hr>
-  <h2>Google搜索</h2>
-  <form action="https://www.google.com.hk/search" target="_blank">
-    <input type="text" name="q">
-    <input type="text" hidden name="ie" value="UTF-8">
-    <input type="text" hidden name="soureid" value="UTF">
-    <button type="submit">在新窗口打开搜索结果</button>
-  </form>
+  <fieldset>
+    <legend>
+      <img width="150px" src="https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+        alt="">
+    </legend>
+    <form action="https://www.google.com.hk/search" target="_blank">
+      <input type="text" name="q">
+      <button type="submit">在新窗口打开搜索结果</button>
+    </form>
+  </fieldset>
   <hr>
   <p>个人信息调查表</p>
-  <dl>
-    <dt>性别</dt>
-    <dd>
-      <label>
-        <input type="radio" name="gender" value="man">男
-      </label>
-      <label>
-        <input type="radio" name="gender" value="women">女
-      </label>
-    </dd>
-    <dt>年龄</dt>
-    <dd>
-      <select name="age" id="">.
-        <option value="">请选择</option>
-        <optgroup label="少年">
-          <option value="1-6岁">1-6岁</option>
-          <option value="6-12岁">6-12岁</option>
-        </optgroup>
-        <optgroup label="青年">
-          <option value="12-15岁">12-15岁</option>
-          <option value="15-18岁">15-18岁</option>
-        </optgroup>
-        <optgroup label="少年">
-          <option value="1-6岁">1-6岁</option>
-          <option value="6-12岁">6-12岁</option>
-        </optgroup>
-      </select>
-    </dd>
-    <dt>生日</dt>
-    <dd>
-      <input type="date" value="2023-03-21">
-    </dd>
-    <dt>生辰</dt>
-    <dd>
-      <input type="time">
-    </dd>
-    <dt>照片</dt>
-    <dd>
-      <input type="file" hidden id="upload">
-      <label for="upload">点我上传</label>
-    </dd>
-    <dt>自我介绍</dt>
-    <dd>
-      <textarea name="" id="" cols="30" rows="10">&lt;/textarea&gt;</textarea>
-    </dd>
-  </dl>
-  <fieldset>
-    <legend>这里全部禁用了</legend>
-    <input type="text" disabled="">
-    <input type="text" disabled="">
-    <input type="text" disabled="">
-    <input type="text" disabled="">
-  </fieldset>
-  <button>提交</button>
-  <button>重置</button>
+  <form action="">
+    <dl>
+      <dt>性别</dt>
+      <dd>
+        <label>
+          <input type="radio" name="gender" value="man">男
+        </label>
+        <label>
+          <input type="radio" name="gender" value="women">女
+        </label>
+      </dd>
+      <dt>年龄</dt>
+      <dd>
+        <select name="age" id="">.
+          <option value="">请选择</option>
+          <optgroup label="少年">
+            <option value="1-6岁">1-6岁</option>
+            <option value="6-12岁">6-12岁</option>
+          </optgroup>
+          <optgroup label="青年">
+            <option value="12-15岁">12-15岁</option>
+            <option value="15-18岁">15-18岁</option>
+          </optgroup>
+          <optgroup label="少年">
+            <option value="1-6岁">1-6岁</option>
+            <option value="6-12岁">6-12岁</option>
+          </optgroup>
+        </select>
+      </dd>
+      <dt>生日</dt>
+      <dd>
+        <input type="date" value="2023-03-21">
+      </dd>
+      <dt>生辰</dt>
+      <dd>
+        <input type="time">
+      </dd>
+      <dt>照片</dt>
+      <dd>
+        <input type="file" hidden id="upload">
+        <label for="upload">点我上传</label>
+      </dd>
+      <dt>自我介绍</dt>
+      <dd>
+        <textarea name="" id="" cols="30" rows="10">&lt;/textarea&gt;</textarea>
+      </dd>
+    </dl>
+    <fieldset>
+      <legend>这里全部禁用了</legend>
+      <input type="text" disabled="">
+      <input type="text" disabled="">
+      <input type="text" disabled="">
+      <input type="text" disabled="">
+    </fieldset>
+    <button type="submit">提交</button>
+    <button type="reset">重置</button>
+  </form>
   <hr>
   <table border="1">
     <thead>
