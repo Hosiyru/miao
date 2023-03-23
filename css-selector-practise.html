@@ -72,11 +72,13 @@
       color: blue;
     }
 
-    .prime ul li:nth-child(2n+4) {
+    .prime ul li:nth-child(2n+4),
+    .prime ul li:nth-child(3n+6),
+    .prime ul li:nth-child(5n+10) {
       color: pink;
     }
 
-    .prime ul li:not(:nth-child(2n+4)):not(:first-child) {
+    .prime ul li:not(:nth-child(2n+4)):not(:first-child):not(:nth-child(3n+6)):not(:nth-child(5n+10)) {
       color: purple;
     }
   </style>
