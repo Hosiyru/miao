@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css-menu</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box1 {
+      position: relative;
+      width: 150px;
+      height: 50px;
+      background-color: burlywood;
+      text-align: center;
+      line-height: 50px;
+      margin: 200px auto 0;
+    }
+
+    ul {
+      list-style: none;
+      position: absolute;
+      width: 150px;
+      height: 200px;
+      top: 50px;
+      background-color: yellowgreen;
+      display: none;
+    }
+
+    .box1:hover .nav1 {
+      display: block;
+    }
+
+    li {
+      width: 150px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+    }
+
+    .li1:hover .nav2_1 {
+      display: block;
+    }
+
+    .li2:hover .nav2_2 {
+      display: block;
+    }
+
+    .li3:hover .nav2_3 {
+      display: block;
+    }
+
+    .li4:hover .nav2_4 {
+      display: block;
+    }
+
+    .li5:hover .nav2_5 {
+      display: block;
+    }
+
+    ul[class^='nav2'] {
+      position: absolute;
+      display: none;
+    }
+
+    .nav2_1 {
+      left: 150px;
+      top: 0;
+    }
+
+    .nav2_2 {
+      left: 150px;
+      top: 40px;
+    }
+
+    .nav2_3 {
+      left: 150px;
+      top: 80px;
+    }
+
+    .nav2_4 {
+      left: 150px;
+      top: 120px;
+    }
+
+    .nav2_5 {
+      left: 150px;
+      top: 160px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="box1">
+    看我
+    <ul class="nav1">
+      <li class="li1">
+        1
+        <ul class="nav2_1">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+        </ul>
+      </li>
+      <li class="li2">
+        2
+        <ul class="nav2_2">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+        </ul>
+      </li>
+      <li class="li3">
+        3
+        <ul class="nav2_3">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+        </ul>
+      </li>
+      <li class="li4">
+        4
+        <ul class="nav2_4">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+        </ul>
+      </li>
+      <li class="li5">
+        5
+        <ul class="nav2_5">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+        </ul>
+      </li>
+
+    </ul>
+
+  </div>
+
+</body>
+
+</html>
