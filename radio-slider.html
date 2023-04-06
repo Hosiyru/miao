@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>radio-slider</title>
+  <style>
+    .main {
+      position: relative;
+      margin: 200px auto;
+      width: 500px;
+      height: 500px;
+    }
+
+    input {
+      display: none;
+    }
+
+    input:nth-child(1):checked~.box1 img:nth-child(1) {
+      z-index: 1;
+      opacity: 1;
+    }
+
+    input:nth-child(2):checked~.box1 img:nth-child(2) {
+      z-index: 1;
+      opacity: 1;
+    }
+
+    input:nth-child(3):checked~.box1 img:nth-child(3) {
+      z-index: 1;
+      opacity: 1;
+    }
+
+    input:nth-child(4):checked~.box1 img:nth-child(4) {
+      z-index: 1;
+      opacity: 1;
+    }
+
+    input:nth-child(1):checked~.box2 label:nth-child(1) {
+      background-color: black;
+    }
+
+    input:nth-child(2):checked~.box2 label:nth-child(2) {
+      background-color: black;
+    }
+
+    input:nth-child(3):checked~.box2 label:nth-child(3) {
+      background-color: black;
+    }
+
+    input:nth-child(4):checked~.box2 label:nth-child(4) {
+      background-color: black;
+    }
+
+    img {
+      position: absolute;
+      opacity: 0;
+      transition: 1s;
+    }
+
+    .box2 {
+      position: absolute;
+      left: 50%;
+      bottom: 30%;
+      white-space: nowrap;
+      z-index: 2;
+    }
+
+    label {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border-radius: 20px;
+      border: 2px solid pink;
+      background-color: white;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div>
+    <div class="main">
+      <input type="radio" name="slider" id="radio_slider1" checked>
+      <input type="radio" name="slider" id="radio_slider2">
+      <input type="radio" name="slider" id="radio_slider3">
+      <input type="radio" name="slider" id="radio_slider4">
+      <div class="box1">
+        <img
+          src="https://travel.12306.cn/imgs/resources/uploadfiles/images/b0c76b21-531b-4af4-a607-cf5672c72ded_product_W572_H370.jpg"
+          alt="">
+        <img
+          src="https://travel.12306.cn/imgs/resources/uploadfiles/images/8b36f9a7-f780-4e71-b719-9300109a9ff2_product_W572_H370.jpg"
+          alt="">
+        <img
+          src="https://travel.12306.cn/imgs/resources/uploadfiles/images/6d77d0ea-53d0-4518-b7e9-e53795b4920c_product_W572_H370.jpg"
+          alt="">
+        <img
+          src="https://travel.12306.cn/imgs/resources/uploadfiles/images/1716878f-79a2-4db1-af8c-b9c2039f0b3c_product_W572_H370.jpg"
+          alt="">
+      </div>
+      <div class="box2">
+        <label for="radio_slider1"></label>
+        <label for="radio_slider2"></label>
+        <label for="radio_slider3"></label>
+        <label for="radio_slider4"></label>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
