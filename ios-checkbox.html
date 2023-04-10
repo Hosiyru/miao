@@ -8,7 +8,7 @@
   <title>ios-checkbox</title>
   <style>
     html {
-      zoom: 0.5;
+      zoom: 2;
     }
 
     label {
@@ -33,14 +33,9 @@
       left: 8px;
       box-shadow: 0 0 20px rgba(0, 0, 0, .8);
       z-index: 99;
-      transition: .7s;
+      transition: .5s, ;
     }
 
-    div.box:hover span.round2 {
-      right: 8px;
-      left: 150px;
-      box-shadow: 0px 0px 20px;
-    }
 
     div {
       width: 270px;
@@ -53,7 +48,6 @@
       top: 0;
       left: 0;
       transition: .5s;
-      transition-timing-function: cubic-bezier(.87, 0, .5, .99);
     }
 
     input[type="checkbox"]:checked+span+div {

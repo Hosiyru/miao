@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9-grid</title>
+  <style>
+    ul {
+      list-style: none;
+    }
+
+    .box {
+      display: grid;
+      justify-content: center;
+      margin-top: 200px;
+      grid-template-columns: repeat(3, 60px);
+      grid-template-rows: repeat(3, 60px);
+    }
+
+    .box li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      border: 5px blue solid;
+      margin-top: -4px;
+      margin-left: -4px;
+    }
+
+    .box li:hover {
+      z-index: 1;
+      border-color: red;
+    }
+
+  </style>
+</head>
+
+<body>
+  <ul class="box">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+  </ul>
+</body>
+
+</html>

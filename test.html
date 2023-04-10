@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    label {
+      display: inline-block;
+      width: 270px;
+      height: 155px;
+      border: 3px solid #cbcbcb;
+      box-sizing: border-box;
+      border-radius: 90px;
+      transition: .6s;
+    }
+
+    label::before {
+      content: '';
+      display: inline-block;
+      width: 143px;
+      height: 143px;
+      margin: 3px;
+      border-radius: 90px;
+      background-color: white;
+      box-shadow: 0 5px 10px #999;
+      transition: .6s;
+    }
+
+    input:checked+label {
+      border-color: #30f349;
+      box-shadow: inset 10px 0 0 80px #30f349;
+
+    }
+
+    input:checked+label::before {
+      margin-left: 120px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <input type="checkbox" id='a' hidden>
+  <label for="a">
+  </label>
+</body>
