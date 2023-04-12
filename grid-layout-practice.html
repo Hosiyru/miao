@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grid-layout-practice</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: rgba(0, 0, 0, .8);
+    }
+
+    ul {
+      list-style: none;
+      display: grid;
+      background-color: #fff;
+      margin: 50px 50px;
+    }
+
+    ul.box1 {
+      width: 430px;
+      height: 370px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      grid-auto-flow: column;
+      align-items: center;
+    }
+
+    ul.box1 li img {
+      vertical-align: middle;
+      width: 40px;
+    }
+
+    ul.box2 {
+      grid-template-columns: repeat(3, 50px);
+      grid-template-rows: repeat(7, 50px);
+      width: 150px;
+      height: 350px;
+    }
+
+    ul.box2 li {
+      display: flex;
+      margin-left: -2px;
+      margin-top: -2px;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid red;
+    }
+
+    ul.box2 li:nth-child(4) {
+      grid-row: 2 / 4;
+      grid-column: 1 / 3;
+    }
+
+    ul.box2 li:nth-child(11) {
+      grid-row: 5 / 7;
+      grid-column: 2 / 4;
+    }
+
+  </style>
+</head>
+
+<body>
+  <ul class="box1">
+    <li><img
+        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ecfbf9d01c8a2605f0a6938093b23ad8.png?thumb=1&w=60&h=60&f=webp&q=90">Xiaomi
+      MIX系列</li>
+    <li><img
+        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ecfbf9d01c8a2605f0a6938093b23ad8.png?thumb=1&w=60&h=60&f=webp&q=90">Xiaomi
+      数字系列</li>
+    <li><img
+        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ecfbf9d01c8a2605f0a6938093b23ad8.png?thumb=1&w=60&h=60&f=webp&q=90">Xiaomi
+      Civi系列</li>
+    <li><img
+        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ecfbf9d01c8a2605f0a6938093b23ad8.png?thumb=1&w=60&h=60&f=webp&q=90">Xiaomi
+      青春系列</li>
+    <li><img
+        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ecfbf9d01c8a2605f0a6938093b23ad8.png?thumb=1&w=60&h=60&f=webp&q=90">Redmi
+      K系列</li>
+    <li><img
+        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ecfbf9d01c8a2605f0a6938093b23ad8.png?thumb=1&w=60&h=60&f=webp&q=90">Redmi
+      Note系列</li>
+    <li><img
+        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ecfbf9d01c8a2605f0a6938093b23ad8.png?thumb=1&w=60&h=60&f=webp&q=90">Redmi
+      数字系列</li>
+  </ul>
+  <ul class="box2">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+    <li>11</li>
+    <li>12</li>
+    <li>13</li>
+    <li>14</li>
+    <li>15</li>
+  </ul>
+</body>
+
+</html>
