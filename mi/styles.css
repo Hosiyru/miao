@@ -243,6 +243,7 @@ input {
   position: absolute;
   margin-top: 50px;
   background-color: #fff;
+  z-index: 9999;
 }
 .nav_box .nav_right input[type='text'] ~ ul li:last-child {
   border-bottom: 1px solid #FF6700;
