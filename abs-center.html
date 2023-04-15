@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>abs-center</title>
+  <style>
+    div[class*='box'] {
+      float: left;
+      width: 200px;
+      height: 200px;
+      margin: 30px 10px;
+      background-color: lightblue;
+    }
+
+    div[class*='box'] div {
+      width: 50px;
+      height: 50px;
+      background-color: lawngreen;
+    }
+
+    .box1 {
+      position: relative;
+    }
+
+    .box1 div {
+      position: absolute;
+      top: calc(50% - 25px);
+      left: calc(50% - 25px);
+    }
+
+    .box2 div {
+      margin: 75px auto;
+    }
+
+    .box3 {
+      position: relative;
+    }
+
+    .box3 div {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    .box4 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box5 {
+      position: relative;
+    }
+
+    .box5 div {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="box1">
+    <div></div>
+  </div>
+  <div class="box2">
+    <div></div>
+  </div>
+  <div class="box3">
+    <div></div>
+  </div>
+  <div class="box4">
+    <div></div>
+  </div>
+  <div class="box5">
+    <div></div>
+  </div>
+</body>
+
+</html>
