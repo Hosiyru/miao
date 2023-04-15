@@ -62,11 +62,18 @@
       "unicode_decimal": 58911
     },
     {
-      "icon_id": "688132",
+      "icon_id": "116200661",
       "name": "消息",
       "font_class": "xiaoxi",
       "unicode": "e7a8",
       "unicode_decimal": 59304
+    },
+    {
+      "icon_id": "116587307",
+      "name": "跳转",
+      "font_class": "tiaozhuan",
+      "unicode": "e603",
+      "unicode_decimal": 58883
     }
   ]
 }

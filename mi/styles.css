@@ -620,7 +620,12 @@ main .box .box_bd {
 main .box .box_bd img {
   width: 100%;
 }
+main .box .box_bd li {
+  transform: translateY(0);
+  transition: 0.3s;
+}
 main .box .box_bd li:hover {
+  transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 main .box .box_bd ul:first-child li {
@@ -668,6 +673,146 @@ main .box .box_bd ul:last-child li a p:last-child span {
 main .box .box_bd ul:last-child li a img {
   width: 160px;
   height: 160px;
+}
+main div.box1 {
+  margin-top: 20px;
+}
+main div.box1 .box1_hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  height: 58px;
+}
+main div.box1 .box1_hd h1 {
+  font-size: 22px;
+}
+main div.box1 .box1_hd a {
+  font-size: 16px;
+  color: #333;
+}
+main div.box1 .box1_hd a:hover {
+  color: #FF6700;
+}
+main div.box1 .box1_hd a:hover::after {
+  background-color: #FF6700;
+}
+main div.box1 .box1_hd a::after {
+  content: '\e6a2';
+  font-family: "iconfont";
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  padding: 4px;
+  margin-left: 4px;
+  line-height: 12px;
+  vertical-align: 1px;
+  background-color: #B0B0B0;
+  border-radius: 99px;
+  color: #FFF;
+}
+main div.box1 .box1_bd ul {
+  display: grid;
+  grid-template-rows: repeat(4, 153.5px);
+  grid-template-columns: repeat(5, 234px);
+  justify-content: space-between;
+}
+main div.box1 .box1_bd ul li:not(:nth-child(n+9)) {
+  grid-row: span 2;
+}
+main div.box1 .box1_bd ul li:not(:nth-child(n+9)) img {
+  width: 160px;
+  height: 160px;
+}
+main div.box1 .box1_bd ul li:nth-child(n+6) a {
+  margin-top: 7px;
+}
+main div.box1 .box1_bd ul li:not(:first-child) a {
+  display: flex;
+  width: 234px;
+  height: 260px;
+  padding: 20px 0;
+  background-color: #fff;
+  flex-direction: column;
+  align-items: center;
+}
+main div.box1 .box1_bd ul li:not(:first-child) a h3 {
+  margin-top: 20px;
+  color: #333;
+  font-size: 14px;
+}
+main div.box1 .box1_bd ul li:not(:first-child) a h3 + p {
+  margin: 5px 0;
+  font-size: 12px;
+}
+main div.box1 .box1_bd ul li:not(:first-child) a h3 + p + p {
+  margin-top: 5px;
+  color: #FF6700;
+}
+main div.box1 .box1_bd ul li:not(:first-child) a h3 + p + p span {
+  margin-left: 8px;
+  text-decoration: line-through;
+  color: #b0b0b0;
+}
+main div.box1 .box1_bd ul li:first-child {
+  grid-row: 1/5;
+}
+main div.box1 .box1_bd ul li:first-child img {
+  width: 100%;
+  height: 100%;
+}
+main div.box1 .box1_bd ul li:nth-child(9) a,
+main div.box1 .box1_bd ul li:last-child a {
+  position: relative;
+  display: block;
+  height: 93px;
+  padding: 25px 0;
+}
+main div.box1 .box1_bd ul li:nth-child(9) a h3,
+main div.box1 .box1_bd ul li:last-child a h3 {
+  margin: 0 110px 0 30px;
+}
+main div.box1 .box1_bd ul li:nth-child(9) a h3 + p,
+main div.box1 .box1_bd ul li:last-child a h3 + p {
+  margin-left: 30px;
+  font-size: 14px;
+  color: #FF6700;
+}
+main div.box1 .box1_bd ul li:nth-child(9) a img,
+main div.box1 .box1_bd ul li:last-child a img {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  width: 80px;
+  height: 80px;
+}
+main div.box1 .box1_bd ul li:last-child a {
+  position: relative;
+  margin-top: 10.5px;
+}
+main div.box1 .box1_bd ul li:last-child a h3 {
+  margin-top: 20px;
+  font-size: 18px !important;
+  font-weight: 400;
+}
+main div.box1 .box1_bd ul li:last-child a h3 + p {
+  font-size: 12px;
+  color: #B0B0B0;
+}
+main div.box1 .box1_bd ul li:last-child a h3 + p + i {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  font-size: 60px;
+  color: #FF6700;
+}
+main div.box1 .box1_bd ul li {
+  transform: translateY(0);
+  transition: 0.3s;
+}
+main div.box1 .box1_bd ul li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 footer {
   background-color: #fff;
@@ -829,4 +974,90 @@ footer .footer_links div p:first-child {
   height: 19px;
   text-align: center;
   margin-top: 45px;
+}
+.fixed {
+  position: fixed;
+  right: 0;
+  bottom: 140px;
+  z-index: 9999;
+}
+.fixed ul {
+  display: grid;
+  grid-template-rows: repeat(6, 90px);
+}
+.fixed ul li {
+  width: 82px;
+  background-color: #fff;
+  margin-top: -1px;
+  border: 1px solid #f5f5f5;
+}
+.fixed ul li:hover a {
+  color: #FF6700;
+}
+.fixed ul li:hover a img:first-child {
+  display: none;
+}
+.fixed ul li:hover a img:last-child {
+  display: block;
+}
+.fixed ul li a {
+  margin: 15px 0;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  color: #424242;
+}
+.fixed ul li a img {
+  margin: 5px 0;
+  width: 30px;
+  height: 30px;
+}
+.fixed ul li a img:last-child {
+  display: none;
+}
+.fixed ul li:last-child {
+  height: 90px;
+  margin-top: 20px;
+}
+.fixed ul li:first-child {
+  position: relative;
+}
+.fixed ul li:first-child:hover::after {
+  display: block;
+}
+.fixed ul li:first-child:hover div {
+  visibility: visible;
+}
+.fixed ul li:first-child div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: absolute;
+  width: 120px;
+  height: 200px;
+  background-color: #fff;
+  border: 1px solid #f5f5f5;
+  top: 0;
+  left: -170%;
+  visibility: hidden;
+}
+.fixed ul li:first-child div span {
+  width: 80px;
+  color: #424242;
+}
+.fixed ul li:first-child div span::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 35px;
+  right: -20px;
+  border-top: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #fff;
+}
+.fixed ul li:first-child div img {
+  margin-top: 20px;
+  width: 100px;
+  height: 100px;
 }
