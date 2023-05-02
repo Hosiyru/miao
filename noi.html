@@ -217,7 +217,7 @@
     console.log('1')
   } else {
     console.log('0')
-  } 
+  }
 </script>
 
 <script id="ch0104/08" type="111">
@@ -400,7 +400,6 @@
   } else {
     console.log('Invalid operator!')
   }
-  
 </script>
 
 <script id="ch0104/20" type="111">
@@ -433,5 +432,829 @@
   } else {
     n = n - (parseInt(y / x) + 1)
     console.log(n)
+  }
+</script>
+
+<script id="ch105/01" type="111">
+  var n = +prompt()
+  var y = 0
+  for (var i = 0; i < n; i++) {
+    var x = +prompt()
+    var y = y + x
+  }
+  console.log((y / n).toFixed(2))
+</script>
+
+<script id="ch105/02" type="111">
+  var y = 0
+  for (var i = 0; i < 12; i++) {
+    var x = +prompt()
+
+    y = y + x
+  }
+  console.log('$' + (y / 12).toFixed(2))
+</script>
+
+<script id="ch105/03" type="111">
+  var n = prompt()
+  var y = 0
+  for (var i = 0; i < n; i++) {
+    var x = +prompt()
+    y = y + x
+  }
+  console.log((y / n).toFixed(4))
+</script>
+
+<script id="ch105/04" type="111">
+  var n = +prompt()
+  var y = 0
+  for (var i = 0; i < n; i++) {
+    var x = +prompt()
+    y = y + x
+  }
+  console.log(y , (y / n).toFixed(5))
+</script>
+
+<script id="ch105/05" type="111">
+  var n = +prompt()
+  var y = 0
+  for (var i = 0; i < n; i++) {
+    var x = +prompt()
+    if (x > y) {
+      y = x
+    }
+  }
+  console.log(y)
+</script>
+
+<script id="ch105/06" type="111">
+  var n = +prompt()
+  var max = 0
+  var min = 99999999
+  for (var i = 0; i < n; i++) {
+    var x = +prompt()
+    if (x > max) {
+      max = x
+    }
+    if (x < min) {
+      min = x
+    }
+  }
+  console.log(max - min)
+</script>
+
+<script id="ch105/07" type="111">
+  var n = +prompt()
+  var j1 = 0
+  var y1 = 0
+  var t1 = 0
+  for (var i = 0; i < n; i++) {
+    var j = +prompt()
+    var y = +prompt()
+    var t = +prompt()
+    j1 = j1 + j
+    y1 = y1 + y
+    t1 = t1 + t
+  }
+  console.log(j1, y1, t1, j1 + y1 + t1)
+</script>
+
+<script id="ch105/08" type="111">
+  var n = +prompt();
+  var i = 0
+  var x
+  var y = 0
+  while( i < n - 1) {
+    x = +prompt()
+    y = y + x
+    i++
+  }
+  console.log((n - 2) * 180 - y);
+</script>
+
+<script id="ch105/09" type="111">
+  var m = +prompt(),
+      n = +prompt(),
+      num = 0
+  while(m <= n) {
+    if (m % 2 == 0) {
+      m = m + 1
+    }
+    if (m % 2 != 0) {
+      num = num + m
+      m = m + 2
+    }
+  }
+  console.log(num);
+</script>
+
+<script id="ch105/10" type="111">
+  var m = +prompt(),
+      n = +prompt(),
+      num = 0
+  while(m <= n) {
+    if (m % 17 == 0) {
+      num = num + m
+    }
+    m = m + 1
+  }
+  console.log(num);
+</script>
+
+<script id="ch105/11" type="111">
+  var k = +prompt(),
+      k0
+      num = 0,
+      k1 = 0,
+      k5 = 0,
+      k10 = 0
+  while(num < k) {
+    k0 = +prompt()
+    if (k0 == 1) {
+      k1 = k1 + 1
+    } else if (k0 == 5) {
+      k5 = k5 + 1
+    } else if (k0 == 10) {
+      k10 = k10 + 1
+    }
+    num++
+  }
+  console.log(k1)
+  console.log(k5)
+  console.log(k10)
+</script>
+
+<script id="ch105/12" type="111">
+  var n = +prompt(),
+      m = +prompt()
+      num = 0,
+      k1 = 0
+  while(num < n) {
+    k = +prompt()
+    if (k == m) {
+      k1 = k1 + 1
+    }
+    num++
+  }
+  console.log(k1)
+</script>
+
+<script id="ch105/13" type="111">
+  var a = +prompt(),
+      n = +prompt()
+      num = 0
+  while(num < a) {
+    num = a ** n
+  }
+  console.log(num)
+</script>
+
+<script id="ch105/14" type="111">
+  var x = +prompt(),
+      n = +prompt(),
+      i = 0,
+      num = 0
+  while(i < n) {
+    num = x * 0.001
+    x = num + x
+    i++
+  }
+  console.log(x.toFixed(4))
+</script>
+
+<script id="ch105/15" type="111">
+  var r = +prompt(),
+      m = +prompt(),
+      y = +prompt(),
+      i = 0
+  while(i < y) {
+    m = (1 + r / 100) * m
+    i++
+  }
+  console.log(parseInt(m))
+</script>
+
+<script id="ch105/16" type="111">
+  var n = +prompt(),
+    k = +prompt(),
+    num = 200,
+    money = 0
+    year = 0,
+    i = 0;
+  if (n > num) {
+    console.log('现在');
+    i = 21
+  }
+  while (i < 20) {
+    money = money + n
+    if (money > num) {
+      year = Math.ceil(num / n);
+      i = 21
+    }
+    num = k / 100 * num + num;
+    i++;
+  }
+  if (year < 20) {
+    console.log(year);
+  } else {
+    console.log("Impossible");
+  }
+</script>
+
+<script id="ch105/17" type="111">
+  var k = +prompt(),
+      pre = 1,
+      next = 1,
+      num = 0,
+      i = 3
+  if (k > 0 && k <= 2) {
+    num = 1
+  }
+  while(i <= k) {
+    num = pre + next
+    pre = next
+    next = num
+    i++
+  }
+  console.log(num)
+</script>
+
+<script id="ch105/18" type="111">
+  var n = +prompt(),
+      x = +prompt(),
+      y = +prompt()
+    x1 = y / x
+  for(var i = 0; i < n - 1; i++) {
+    x = +prompt(),
+    y = +prompt()
+    x2 = y / x
+    if (x2 - x1 > 0.05) {
+      console.log('better')
+    } else if (x1 - x2 > 0.05) {
+      console.log('worse')
+    } else {
+      console.log('same')
+    }
+  }
+</script>
+
+<script id="ch105/19" type="111">
+  var n = +prompt(),
+      x2,
+      y2,
+      c2,
+      cg,
+      minute
+  for(var i = 0; i < n; i++) {
+    var x = +prompt(),
+        y = +prompt(),
+        people = +prompt()
+    x2 = x * x
+    y2 = y * y
+    c2 = x2 + y2
+    cg = Math.sqrt(c2)
+    minute = cg / 50 * 2 + people + people * 0.5
+    console.log(Math.ceil(minute))
+  }
+</script>
+
+<script id="ch105/20" type="111">
+  var h = +prompt(),
+    numble = 0
+  for(var i = 0; i < 10; i++) {
+    numble = numble + h
+    h = h / 2
+    numble = numble + h
+  }
+  console.log((numble - h).toFixed(4))
+  console.log(h.toFixed(7))
+</script>
+
+<script id="ch105/21" type="111">
+  var h = +prompt()
+  for(var i = 0; i < h; i++) {
+    if (h == 1) {
+      break;
+    } else if (h % 2 != 0) {
+      result = h * 3 + 1
+      console.log(h + '*' + '3' + '+' + '1' + '=' + result)
+    } else {
+      result = h / 2
+      console.log(h + '/' + '2' +  '=' + result)
+    }
+    h = result
+  }
+  console.log('End')
+</script>
+
+<script id="ch105/22" type="111">
+  var money1 = 0,
+      money2 = 0
+  for(var i = 1; i < 13; i++) {
+    var money = +prompt()
+    var money1 = money1 + 300 - money
+    if (money1 >= 100) {
+      money2 = money2 + parseInt(money1 / 100) * 100
+      money1 = money1 - parseInt(money1 / 100) * 100
+    } else if (money1 < 0) {
+      break;
+    }
+  }
+  if (money1 < 0) {
+    console.log(-i)
+  } else {
+    console.log(money2 * 0.2 + money2 + money1)
+  }
+</script>
+
+<script id="ch105/23" type="111">
+  var x = +prompt(),
+    people = +prompt(),
+    num = 0
+  for (var i = 0; i < people; i++) {
+    var y = +prompt()
+    if (y <= x) {
+      x = x - y
+    } else {
+      num++
+    }
+  }
+  console.log(num)
+</script>
+
+<script id="ch105/24" type="111">
+  var x = +prompt(),
+    num = 0
+  for (var i = 0; i < x; i++) {
+    var y = +prompt()
+    var z = +prompt()
+    if ((90 <= y && y <= 140) && (60 <= z && z <= 90)) {
+      num = num + 1
+    } else {
+      num = 0
+    }
+  }
+  console.log(num)
+</script>
+
+<script id="ch105/25" type="111">
+  for (var x = 1; x < 7; x++) {
+    for (var y = 0; y < 7; y++) {
+      for (var z = 0; z < 7; z++) {
+        if (x * 7 * 7 + y * 7 + z == x + y * 9 + z * 9 * 9) {
+          console.log(x * 7 * 7 + y * 7 + z);
+          console.log(x * 100 + y * 10 + z);
+          console.log(z * 100 + y * 10 + x);
+        }
+      }
+    }
+  }
+</script>
+
+<script id="ch105/26" type="111">
+  var x = +prompt()
+  var 计数器 = 0
+  for (var i = 0; i < x; i++) {
+    var numble = +prompt()
+    var 个位 = numble % 10
+    var 十位 = parseInt(numble / 10 % 10)
+    var 百位 = parseInt(numble / 100 % 10)
+    var 千位 = parseInt(numble / 1000 % 10)
+    if (个位 - 千位 - 百位 - 十位 > 0) {
+     计数器 = 计数器 + 1
+    }
+  }
+  console.log(计数器)
+</script>
+
+<script id="ch105/27" type="111">
+  var x = +prompt()
+  var n = 0
+  var Sn = 0
+  do {
+    n++
+    Sn += 1 / n
+  } while (Sn <= x)
+  console.log(n)
+</script>
+
+<script id="ch105/28" type="111">
+  var x = +prompt()
+  var y = ''
+  do {
+    y += x % 10 + ''
+    x = parseInt(x / 10)
+  } while(x != 0)
+  console.log(y)
+</script>
+
+<script id="ch105/29" type="111">
+  var x = +prompt()
+  var y = ''
+  if (x > 0) {
+    do {
+    y += x % 10
+    x = parseInt(x / 10)
+  } while(x != 0)
+  console.log(y)
+  } else if (x < 0) {
+    x = -x
+    do {
+    y += x % 10
+    x = parseInt(x / 10)
+  } while(x != 0)
+  console.log(-y)
+  } else {
+    console.log(0)
+  }
+</script>
+
+<script id="ch105/30" type="111">
+  var x = +prompt()
+  var y = +prompt()
+  var c
+  var num = 0
+  var x1 = x
+  while (true) {
+    if (x1 % 19 == 0) {
+      if (num == y) {
+        console.log('YES')
+        break
+      } else {
+        c = x % 10
+        x = x / 10
+        if (parseInt(c) == 3) {
+        num++
+        } else if (x < 1) {
+          console.log('NO')
+          break
+        }
+      }
+    } else {
+      console.log('NO')
+      break;
+    }
+  }
+</script>
+
+<script id="ch105/31" type="111">
+  var N = +prompt()
+  var M = +prompt()
+      w = 1
+  for (var i = 2; i <= N; i++) {
+    var flag = 1
+    for (var j = 1; j <= M; j++) {
+      if (i % j == 0) {
+        flag = !flag
+      }
+    }
+    if (flag == 0) {
+      w = w + ',' + i
+    }
+  }
+  console.log(w)
+</script>
+
+<script id="ch105/32" type="111">
+  var n = +prompt()
+  var pre = 1
+  var next = 2
+  var r = pre
+  var q = 0
+  for (var i = 0; i < n; i++) {
+    q = q + next / pre
+    pre = next
+    next = next + r
+    r = pre
+  }
+  console.log(q.toFixed(4))
+</script>
+
+<script id="ch105/33" type="111">
+  var n = +prompt()
+  var x = -1
+  var num = 0
+  var num1 = (x ** (n - 1)) * (1 / n)
+  var num2
+  for (var i = 1; i < n; i++) {
+    if (i % 2 == 0) {
+      num = num - 1 / i
+    } else {
+      num = num + 1 / i
+    }
+  }
+  num = num + num1
+  console.log(num.toFixed(4))
+</script>
+
+<script id="ch105/34" type="111">
+  var n = +prompt()
+  var num = 1
+  var num1 = 0
+  for (var i = 1; i <= n; i++) {
+      num = num * i
+      num1  = num + num1
+  }
+  console.log(num1)
+</script>
+
+<script id="ch105/35" type="111">
+  var n = +prompt()
+  var num = 1
+  var num1 = 1
+  for (var i = 1; i <= n; i++) {
+    num = num * i
+    num1 = num1 + 1 / num
+  }
+  console.log(num1.toFixed(10))
+</script>
+
+<script id="ch105/36" type="111">
+  var x = +prompt(),
+      n = +prompt(),
+      num = 0
+  for (var i = 0; i < n; i++) {
+    num = num + x ** (n - i)
+  }
+  console.log((num + 1).toFixed(2))
+</script>
+
+<script id="ch105/37" type="111">
+  var M = +prompt(),
+  N = +prompt(),
+  X = +prompt(),
+  d
+  while (X > 0) {
+    d = parseInt(M / N)
+    if (M % N != 0) {
+      d++
+    }
+    if (X - d < 0) {
+      break
+    }
+    X = X - d
+    d = parseInt(M /N)
+    N = N + d
+  }
+  console.log(N)
+</script>
+
+<script id="ch105/38" type="111"></script>
+
+<script id="ch105/39" type="111">
+  var n = +prompt()
+  var num = 0
+  for (var i = 0; i <= n; i++) {
+    if (i % 7 != 0 && i % 10 != 7 && parseInt(i / 10) != 7) {
+      num += i ** 2
+    }
+  }
+  console.log(num)
+</script>
+
+<script id="ch105/40" type="111">
+  var n = +prompt(),
+    num = 0;
+  for (i = 1; i <= n; i++) {
+    x = i;
+    while (x > 0) {
+      if (x % 10 == 1) {
+        num++;
+      }
+      x = parseInt(x / 10);
+    }
+  }
+  console.log(num);
+</script>
+
+<script id="ch105/41" type="111">
+  var L = +prompt(),
+      R = +prompt(),
+    num = 0;
+  for (i = L; i <= R; i++) {
+    x = i;
+    while (x > 0) {
+      if (x % 10 == 2) {
+        num++;
+      }
+      x = parseInt(x / 10);
+    }
+  }
+  console.log(num);
+</script>
+
+<script id="ch105/42" type="111">
+  var weight = prompt(),
+    height = prompt(),
+    符号 = prompt(),
+    flag = prompt(),
+    计数 = "",
+    计数1 = ''
+  if (flag == 1) {
+    for (i = 1; i <= weight; i++) {
+      计数 = 符号 + 计数;
+      if (i == weight) {
+        for (j = 1; j <= height; j++) {
+          console.log(计数);
+        }
+      }
+    }
+  } else {
+    for (x = 2; x < weight; x++) {
+      计数1 = ' ' + 计数1;
+    }
+    for (i = 1; i <= weight; i++) {
+        计数 = 符号 + 计数;
+        if (i == weight) {
+          for (j = 1; j <= height; j++) {
+            if (j == 1 || j == height) {
+              console.log(计数)
+            } else {
+              console.log(符号 + 计数1 + 符号)
+            }
+          }
+        }
+
+    }
+  }
+</script>
+
+<script id="ch105/43" type="111">
+  var n = +prompt()
+  for (i = 0; i < n; i++) {
+    if (((i % 2 === 0 || i % 5 === 0 || i % 3 === 0 || i === 1 || i === 0 || i < 0)) && i !== 5 && i !== 2 && i !== 3 ? false : true) {
+      for (j = 0; j < n; j++) {
+        if (((j % 2 === 0 || j % 5 === 0 || j % 3 === 0 || j === 1 || j === 0 || j < 0)) && j !== 5 && j !== 2 && j !== 3 ? false : true) {
+          num = i * j
+          if (num == n) {
+            console.log(j)
+            i = n
+          }
+        }
+      }
+    }
+  }
+</script>
+
+<script id="ch105/44" type="111">
+  var n = +prompt(),
+    num = 0
+  for (i = 0; i <= 10000; i++) {
+    if (((i % 2 === 0 || i % 5 === 0 || i % 3 === 0 || i === 1 || i === 0 || i < 0)) && i !== 5 && i !== 2 && i !== 3 ? false : true) {
+      num = num + 1
+      if (num == n) {
+        console.log(i)
+      }
+    }
+  }
+</script>
+
+<script id="ch105/45" type="111">
+  var day = +prompt()
+  var 工资 = 0
+  var gold = 1
+  while(day > 0) {
+    if (day > gold) {
+      工资 = 工资 + gold * gold
+      day = day - gold
+    } else {
+      工资 = 工资 + gold * day
+      day = 0
+    }
+    gold++
+  }
+  console.log(工资)
+</script>
+
+<script id="narcissistic" type="111">
+  var x = +prompt(),
+    个位 = 0,
+    十位 = 0,
+    百位 = 0;
+  for (var i = 0; i <= x; i++) {
+    个位 = i % 10;
+    十位 = parseInt((i / 10) % 10);
+    百位 = parseInt((i / 100) % 10);
+  }
+  if (x == 个位 ** 3 + 十位 ** 3 + 百位 ** 3) {
+      console.log('YES')
+    } else {
+      console.log('NO')
+    }
+</script>
+
+<script id="narcissistics" type="111">
+  var 个位 = 0,
+    十位 = 0,
+    百位 = 0;
+  for (var i = 2; i <= 10000; i++) {
+    个位 = i % 10;
+    十位 = parseInt((i / 10) % 10);
+    百位 = parseInt((i / 100) % 10);
+    if (i == 个位 ** 3 + 十位 ** 3 + 百位 ** 3) {
+      console.log(i);
+    }
+  }
+</script>
+
+<script id="palindrom" type="111">
+  var n = +prompt(),
+      n1 = n,
+      x = ""
+  while (n > 0) {
+    个位 = n % 10;
+    x = x + 个位;
+    n = parseInt(n / 10);
+  }
+  if (x == n1) {
+    console.log("YES");
+  } else {
+    console.log("NO");
+  }
+</script>
+
+<script id="weekday" type="111"></script>
+
+<script id="complete-number" type="111">
+  var n = prompt(),
+      计数 = 0
+  for (i = 1; i <= n; i++) {
+    for (j = 1; j <= n; j++) {
+      if (i * j == n) {
+        计数 = 计数 + i + j
+      }
+    }
+  }
+  if (计数 / 2 - n == n) {
+  console.log('YES')
+  } else {
+  console.log('NO')
+  }
+</script>
+
+<script id="prime" type="111">
+  var x = +prompt()
+  console.log(((x % 2 === 0 || x % 5 === 0 || x % 3 === 0 || x === 1 || x === 0 || x < 0)) && x !== 5 && x !== 2 && x !== 3 ? 'NO' : 'YES');
+</script>
+
+<script id="primes" type="111">
+  for (x = 0; x <= 100; x++) {
+    if (((x % 2 == 0 || x % 5 == 0 || x % 3 == 0 || x == 1 || x == 0 || x < 0)) && x != 5 && x != 2 && x != 3 ? false : true) {
+      console.log(x)
+    }
+  }
+</script>
+
+<script id="itob" type="111">
+  var x = +prompt()
+  console.log(x.toFixed(0))
+</script>
+
+<script id="lcf&lcm" type="111">
+  var 数字1 = +prompt(),
+    数字2 = +prompt(),
+    flag = 1,
+    x = 1,
+    w = 1;
+  for (i = 1; i <= (数字1 > 数字2 ? 数字1 : 数字2); i++) {
+    for (j = 1; j <= (数字1 > 数字2 ? 数字1 : 数字2); j++) {
+      if (i * j == 数字1) {
+        for (z = 1; z <= (数字1 > 数字2 ? 数字1 : 数字2); z++) {
+          if (i * z == 数字2) {
+            最大公约数 = i;
+          }
+        }
+      }
+    }
+  }
+  while (flag == 1) {
+    while (true) {
+      if ((数字1 > 数字2 ? 数字2 : 数字1) * x > (数字1 > 数字2 ? 数字1 : 数字2) * w) {
+        x = 1;
+        break;
+      } else if (数字1 * x == 数字2 * w) {
+        最小公倍数 = 数字2 * w;
+        flag = 0;
+        break;
+      } else {
+        x++;
+      }
+    }
+    w++;
+  }
+  console.log(最大公约数, 最小公倍数);
+</script>
+
+<script id="sqrt" type="111">
+  var n = +prompt(),
+  i = 1,
+  x = 0
+  while (true) {
+    i = 1 / 2 * (i + n / i)
+    if (x.toFixed(3) == i.toFixed(3)) {
+      console.log(i.toFixed(3))
+      break
+    }
+    x = i
   }
 </script>
