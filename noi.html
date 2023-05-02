@@ -732,7 +732,8 @@
 
 <script id="ch0105/21" type="111">
   var h = +prompt()
-  for(var i = 0; i <= h; i++) {
+  var n = h
+  for(var i = 0; i <= n; i++) {
     if (h == 1) {
       break;
     } else if (h % 2 != 0) {
@@ -839,13 +840,12 @@
 </script>
 
 <script id="ch0105/28" type="111">
-  var x = +prompt()
-  var y = ''
+  var n = +prompt('n')
   do {
-    y += x % 10 + ''
-    x = parseInt(x / 10)
-  } while(x != 0)
-  console.log(y.trim())
+    var x = n % 10
+      n = (n - x) / 10
+      console.log(x)
+  } while( n > 0)
 </script>
 
 <script id="ch0105/29" type="111">
@@ -999,7 +999,21 @@
   console.log(N)
 </script>
 
-<script id="ch0105/38" type="111"></script>
+<script id="ch0105/38" type="111">
+  var t = +prompt()
+
+  for (i = 0; i < t; i++) {
+    var n = +prompt()
+    var e = n
+    for (j = 0; j <= n; j++) {
+      var c = +prompt()
+      if (j != n || n == 0) {
+        console.log(c * e)
+      }
+      e--
+    }
+  }
+</script>
 
 <script id="ch0105/39" type="111">
   var n = +prompt()
