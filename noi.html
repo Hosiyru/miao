@@ -1187,7 +1187,15 @@
   }
 </script>
 
-<script id="weekday" type="111"></script>
+<script id="weekday" type="111">
+  var year = +prompt(),
+      month = +prompt(),
+      f = parseInt((14 - month) / 12),
+      y = year - f,
+      m = month + 12 * f - 2,
+      day = (1 +y + parseInt(31 * m / 12) + parseInt(y / 4) - parseInt(y / 100) + parseInt(y / 400)) % 7
+      console.log(day)
+</script>
 
 <script id="complete-number" type="111">
   var n = prompt(),
@@ -1223,7 +1231,7 @@
 
 <script id="prime" type="111">
   var x = +prompt()
-  console.log(((x % 2 === 0 || x % 5 === 0 || x % 3 === 0 || x === 1 || x === 0 || x < 0)) && x !== 5 && x !== 2 && x !== 3 ? 'NO' : 'YES');
+  console.log(((x % 2 === 0 || x % 7 === 0 ||x % 5 === 0 || x % 3 === 0 || x === 1 || x === 0 || x < 0)) && x !== 5 && x !== 2 && x !== 7 && x !== 3 ? 'NO' : 'YES');
 </script>
 
 <script id="primes" type="111">
