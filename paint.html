@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <canvas width="500" height="400"></canvas>
+  <canvas width="800" height="800"></canvas>
 </body>
 <script>
   var canvas = document.querySelector('canvas')
@@ -157,6 +157,14 @@
   for (x = 0; x <= 40; x += 0.3) {
     y = Math.sin(x)
     dot(x * 10, y * 10 + 120)
+  }
+  // 16
+  for (var x = 0; x < 256; x++) {
+    for (var y = 0; y < 256; y++) {
+      var x1 = 0.5 * x - 0.87 * y
+      var y1 = 0.87 * x + 0.5 * y
+      dot(x1 + 300, y1 + 400, 'rgb(' + x + ' , ' + y + ', 255)')
+    }
   }
 </script>
 
