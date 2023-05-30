@@ -52,13 +52,11 @@ class LinkedList {
   constructor() {
     this.head = null
     this.tail = null
-    for (var item of initVals) {
-      this.append(item)
-    }
   }
   append(val) {
     var node = {
-      val, next: null
+      val: val, 
+      next: null
     }
     if (this.head == null) {
       this.head = this.tail = node
@@ -71,7 +69,8 @@ class LinkedList {
   }
   prepend(val) {
     var node = {
-      val, next: null
+      val: val,
+      next: null
     }
     if (this.head == null) {
       this.head = this.tail = node
@@ -83,6 +82,7 @@ class LinkedList {
     }
   }
   at(idx) {
+    if (this.head === this.tail === null) return null
     var p = this.head
     var count = 0
     while (count < idx) {
@@ -91,7 +91,7 @@ class LinkedList {
     }
     return p.val
   }
-  get length () {
+  get size () {
     var p = this.head
     var l = 0
     while (p) {
@@ -143,28 +143,34 @@ class Queue {
 class Stack {
   constructor() {
     this.head = null
-    this.length = 0
+    this.count = 0
   }
-  push(node) {
+
+  push(val) {
+    let node = {
+      val: val,
+      next: null
+    }
     if (!this.head) {
       this.head = node
-      this.length++
     } else {
       node.next = this.head
       this.head = node
-      this.length++
     }
+    this.count++
   }
+
   pop() {
-    let res = this.head || undefined
-    if (this.head) {
-      this.head = this.head.next
-      this.length--
-    }
-    return res
+    if (!this.head) return undefined
+
+    this.count--
+    let p = this.head.val
+    this.head = this.head.next
+    return p
   }
+
   get size() {
-    return this.length
+    return this.count
   }
 }
 
