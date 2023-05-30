@@ -1,5 +1,5 @@
 class Vector {
-  constructor() {
+  constructor(x, y) {
     this.x = x
     this.y = y
   }
@@ -19,7 +19,7 @@ class Vector {
 }
 
 class Complex {
-  constructor() {
+  constructor(real, imag) {
     this.real = real
     this.imag = imag
   }
