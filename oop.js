@@ -361,11 +361,11 @@ class PriorityQueue {
       return undefined
     }
     if (this.arr.length == 1) {
-      return this.array.pop()
+      return this.arr.pop()
     }
-    let result = this.array[0]
-    let last = this.array.pop()
-    this.array[0] = last
+    let result = this.arr[0]
+    let last = this.arr.pop()
+    this.arr[0] = last
     this.heapDown(0)
     return result
   }
