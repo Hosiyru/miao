@@ -423,5 +423,7 @@ function heapDown(heap,pos,stop = heap.length){
   }
 }
 function swap(array,i,j){
-  [array[i] ,array[j]] = [array[j] = array[i]]
+  var t = array[i]
+  array[i] = array[j]
+  array[j] = t
 }
