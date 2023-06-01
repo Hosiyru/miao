@@ -330,68 +330,98 @@ class MySet {
   }
 }
 
-class PriorityQueue {
-  constructor(arr = [], fun = i => i) {
-    this.fun = fun
-    this.arr = arr
-    if (this.arr.length != 0) {
-      this.heapify()
+class PriorityQueue{
+  constructor(initials = [], predicate = it => it){
+    if(typeof predicate !== 'function'){
+      throw new TypeError('predicate must be a function, got: ' + predicate)
+    }
+    this._elements = []
+    this._predicate = predicate
+    for(var val of initials){
+      this.push(val)
     }
   }
-
-  swap(i , j) {
-    [this.arr[i], this.arr[j]] = [this.arr[j], this.arr[i]]
-  }
-
-  push(val) {
-    this.arr.push(val)
-    var i = this.arr.length - 1
-    while (true) {
-      let root = (i - 1) >> 1
-      if (this.fun(this.arr[root]) < this.fun(this.arr[i])) {
-        this.swap(root, i)
-        i = root
-      } else break
+  heapUp(pos){
+    if(pos == 0){
+      return
     }
-    return this.arr
-  }
+    var predicate = this._predicate
+    var parentPos = (pos - 1) >> 1
+    if(predicate(this._elements[pos]) > predicate(this._elements[parentPos])){
+      swap(this._elements,pos,parentPos)
+      this.heapUp(parentPos)
+    }
 
-  pop() {
-    if (this.arr.length == 0) {
+  }
+  heapDown(pos){
+    var leftPos = 2 * pos + 1
+    var rightPos = 2 * pos + 2
+    var maxIndex = pos
+    var predicate = this._predicate
+    if(leftPos < this._elements.length && predicate(this._elements[leftPos]) > predicate(this._elements[maxIndex])){
+      maxIndex = leftPos
+    }
+    if(rightPos < this._elements.length && predicate(this._elements[rightPos]) > predicate(this._elements[maxIndex])){
+      maxIndex = rightPos
+    }
+    if(maxIndex != pos){
+      swap(this._elements,maxIndex,pos)
+      this.heapDown(maxIndex)
+    }
+  }
+  pop(){
+    if(this._elements.length == 0){
       return undefined
     }
-    if (this.arr.length == 1) {
-      return this.arr.pop()
+    if(this._elements.length == 1){
+      return this._elements.pop()
     }
-    let result = this.arr[0]
-    let last = this.arr.pop()
-    this.arr[0] = last
+
+    var last = this._elements.pop()
+    var result = this._elements[0]
+    this._elements[0] = last
     this.heapDown(0)
     return result
   }
-
-  peek() {
-    return this.arr[0]
+  push(val){
+    this._elements.push(val)
+    this.heapUp(this._elements.length -1)
+    return this
+  }
+  peek(){
+    return this._elements[0]
+  }
+  get size (){
+   return this._elements.length
+  }
+}
+function heapSort(array){
+  var start = (array.length - 1) >> 1
+  for(var i= start ;i >= 0 ;i--){
+    heapDown(array,i)
   }
 
-  heapDown(i) {
-    let left = 2 * i + 1
-    let right = 2 * i + 2
-    let max = i
-    if (left < this.arr.length && this.arr[left] > this.fun(this.arr[i])) max = left
-    if (right < this.arr.length && this.arr[right] > this.fun(this.arr[i])) max = right
-    if (max != i) {
-      this.swap(max, i)
-      this.heapDown(max)
-    }
+  for(var i = array.length -1;i>0;i--){
+    swap(array,i,0)
+    heapDown(array,0,i)
   }
-
-  heapify() {
-    for (var i = (this.arr.length - 1) >> 1; i >= 0; i--) this.heapDown()
-    return this.arr
+  return array
+}
+function heapDown(heap,pos,stop = heap.length){
+  var leftPos = 2 * pos + 1
+  var rightPos = 2 * pos + 2
+  var maxIndex = pos
+  if(leftPos < stop && heap[leftPos] > heap[maxIndex]){
+    maxIndex = leftPos
   }
-
-  get size() {
-    return this.arr.length
+  if(rightPos < stop && heap[rightPos] > heap[maxIndex]){
+    maxIndex = rightPos
   }
+  if(maxIndex != pos){
+    swap(heap,maxIndex,pos)
+    heapDown(heap,maxIndex,stop)
+  }
+}
+function swap(array,i,j){
+  [array[i] ,array[j]] = [array[j] = array[i]]
 }
