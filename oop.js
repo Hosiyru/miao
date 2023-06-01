@@ -357,10 +357,17 @@ class PriorityQueue {
   }
 
   pop() {
-    this.swap(0, this.arr.length - 1)
-    let max = this.arr.pop()
+    if (this.arr.length == 0) {
+      return undefined
+    }
+    if (this.arr.length == 1) {
+      return this.array.pop()
+    }
+    let result = this.array[0]
+    let last = this.array.pop()
+    this.array[0] = last
     this.heapDown(0)
-    return max
+    return result
   }
 
   peek() {
