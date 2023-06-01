@@ -329,3 +329,62 @@ class MySet {
     return this.MyMap.size
   }
 }
+
+class PriorityQueue {
+  constructor(arr = [], fun = i => i) {
+    this.fun = fun
+    this.arr = arr
+    if (this.arr.length != 0) {
+      this.heapify()
+    }
+  }
+
+  swap(i , j) {
+    [this.arr[i], this.arr[j]] = [this.arr[j], this.arr[i]]
+  }
+
+  push(val) {
+    this.arr.push(val)
+    var i = this.arr.length - 1
+    while (true) {
+      let root = (i - 1) >> 1
+      if (this.fun(this.arr[root]) < this.fun(this.arr[i])) {
+        this.swap(root, i)
+        i = root
+      } else break
+    }
+    return this.arr
+  }
+
+  pop() {
+    this.swap(0, this.arr.length - 1)
+    let max = this.arr.pop()
+    this.heapDown(0)
+    return max
+  }
+
+  peek() {
+    return this.arr[0]
+  }
+
+  heapDown(i) {
+    let left = 2 * i + 1
+    let right = 2 * i + 2
+    let max = i
+    if (left < this.arr.length && this.arr[left] > this.arr[i]) max = left
+    if (right < this.arr.length && this.arr[right] > this.arr[j]) max = right
+    if (max != i) {
+      this.swap(max, i)
+      this.heapDown(max)
+    }
+  }
+
+  heapify() {
+    for (var i = (this.arr.length - 1) >> 1; i >= 0; i--) this.heapDown()
+    return this.arr
+  }
+
+  get size() {
+    return this.arr.length
+  }
+}
