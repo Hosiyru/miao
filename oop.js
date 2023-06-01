@@ -372,7 +372,7 @@ class PriorityQueue {
     let right = 2 * i + 2
     let max = i
     if (left < this.arr.length && this.arr[left] > this.arr[i]) max = left
-    if (right < this.arr.length && this.arr[right] > this.arr[j]) max = right
+    if (right < this.arr.length && this.arr[right] > this.arr[i]) max = right
     if (max != i) {
       this.swap(max, i)
       this.heapDown(max)
