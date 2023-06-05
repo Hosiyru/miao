@@ -33,7 +33,7 @@ var hosiyru = {
     let map = new Map()
     let result = []
     for (let k of values) {
-      if (!map.has(k)) values.set(k, 1)
+      if (!map.has(k)) map.set(k, 1)
     }
     for (let i of array) {
       if (map.has(i)) {}
