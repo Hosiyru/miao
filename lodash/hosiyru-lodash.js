@@ -11,11 +11,11 @@ var hosiyru = {
     }
     return result
   },
-  
+
   compact: (array) => {
     let result = []
     for (let k of array) {
-      if(k) result.push(k)
+      if (k) result.push(k)
     }
     return result
   },
@@ -29,16 +29,32 @@ var hosiyru = {
     return result
   },
 
-  difference: (array, values) => {
+  difference: (array, ...values) => {
     let map = new Map()
     let result = []
-    for (let k of values) {
+    let v = flattenDeep(values)
+    for (let k of v) {
       if (!map.has(k)) map.set(k, 1)
     }
     for (let i of array) {
-      if (map.has(i)) {}
+      if (map.has(i)) { }
       else result.push(i)
     }
     return result
   },
+}
+
+function flattenDeep(array) {
+  let result = []
+  for (let item of array) {
+    if (Array.isArray(item)) {
+      let flattenItem = flattenDeep(item)
+      for (let val of flattenItem) {
+        result.push(val)
+      }
+    } else {
+      result.push(item)
+    }
+  }
+  return result
 }
