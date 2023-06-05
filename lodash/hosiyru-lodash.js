@@ -13,10 +13,9 @@ var hosiyru = {
   },
   
   compact: (array) => {
-    let result = [], i = 0
-    while(i < array.length) {
-      if(i) result.push(array[i])
-      i++
+    let result = []
+    for (let k of array) {
+      if(k) result.push(k)
     }
     return result
   },
