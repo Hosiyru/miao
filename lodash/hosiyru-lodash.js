@@ -47,6 +47,14 @@ var hosiyru = {
     for (let i = start; i < end; i++) array[i] = values
     return array
   },
+
+  drop: (array, n) => array.slice(n),
+
+  dropRight: (array, n = 1) => {
+    if (array.length < n) return array = []
+    return array.slice(0, array.length - n)
+  },
+
 }
 
 function flattenDeep(array) {
