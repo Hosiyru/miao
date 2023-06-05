@@ -48,13 +48,18 @@ var hosiyru = {
     return array
   },
 
-  drop: (array, n) => array.slice(n),
+  drop: (array, n = 1) => array.slice(n),
 
   dropRight: (array, n = 1) => {
     if (array.length < n) return array = []
     return array.slice(0, array.length - n)
   },
 
+  flatten: (arr) => {
+    return arr.reduce((pre, cur) => {
+      return pre.concat(cur)
+    }, [])
+  }
 }
 
 function flattenDeep(array) {
