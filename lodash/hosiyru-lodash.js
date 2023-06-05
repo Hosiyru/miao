@@ -32,7 +32,7 @@ var hosiyru = {
   difference: (array, ...values) => {
     let map = new Map()
     let result = []
-    let v = flattenDeep(values)
+    let v = hosiyru.flattenDeep(values)
     for (let k of v) {
       if (!map.has(k)) map.set(k, 1)
     }
@@ -57,22 +57,7 @@ var hosiyru = {
 
   flatten: (arr) => arr.reduce((pre, cur) => pre.concat(cur), []),
 
-  flattenDeep: (arr) => arr.reduce((pre, cur) => Array.isArray(cur) ? pre.concat(flattenDeep(cur)) : pre.concat(cur), []),
+  flattenDeep: (arr) => arr.reduce((pre, cur) => Array.isArray(cur) ? pre.concat(hosiyru.flattenDeep(cur)) : pre.concat(cur), []),
 
-  flattenDepth: (arr, depth = 1) => arr.reduce((pre, cur) => Array.isArray(cur) && depth > 1 ? pre.concat(flattenDeep(cur, depth - 1)) : pre.concat(cur), []),
-}
-
-function flattenDeep(array) {
-  let result = []
-  for (let item of array) {
-    if (Array.isArray(item)) {
-      let flattenItem = flattenDeep(item)
-      for (let val of flattenItem) {
-        result.push(val)
-      }
-    } else {
-      result.push(item)
-    }
-  }
-  return result
+  flattenDepth: (arr, depth = 1) => arr.reduce((pre, cur) => Array.isArray(cur) && depth > 1 ? pre.concat(hosiyru.flattenDepth(cur, depth - 1)) : pre.concat(cur), []),
 }
