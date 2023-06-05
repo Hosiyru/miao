@@ -42,6 +42,11 @@ var hosiyru = {
     }
     return result
   },
+
+  fill: (array, values, start = 0, end = array.length) => {
+    for (let i = start; i < end; i++) array[i] = values
+    return array
+  },
 }
 
 function flattenDeep(array) {
