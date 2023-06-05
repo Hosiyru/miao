@@ -5,7 +5,7 @@ var hosiyru = {
       let h = []
       for (let j = 0; j < size; j++) {
         if (!array[i + j]) break
-        h.push(array[j])
+        h.push(array[i + j])
       }
       result.push(h)
     }
@@ -15,12 +15,7 @@ var hosiyru = {
   compact: (array) => {
     let result = [], i = 0
     while(i < array.length) {
-      if (!(array[i] == false || 
-        array[i] == null || 
-        array[i] == 0 || 
-        array[i] == '' || 
-        array[i] == undefined || 
-        array[i] == NaN)) result.push(array[i])
+      if(i) result.push(array[i])
       i++
     }
     return result
