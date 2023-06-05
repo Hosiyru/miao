@@ -33,5 +33,9 @@ var hosiyru = {
       else result.push(item)
     }
     return result
-  }
+  },
+
+  difference: (array, values) => {
+
+  },
 }
