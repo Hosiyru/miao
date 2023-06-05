@@ -55,11 +55,11 @@ var hosiyru = {
     return array.slice(0, array.length - n)
   },
 
-  flatten: (arr) => {
-    return arr.reduce((pre, cur) => {
-      return pre.concat(cur)
-    }, [])
-  }
+  flatten: (arr) => arr.reduce((pre, cur) => pre.concat(cur)),
+
+  flattenDeep: (arr) => arr.reduce((pre, cur) => Array.isArray(cur) ? pre.concat(flattenDeep(cur)) : pre.concat(cur)),
+
+  flattenDepth: (arr, depth = 1) => arr.reduce((pre, cur) => Array.isArray(cur) ? pre.concat(flattenDeep(cur, depth - 1)) : pre.concat(cur)),
 }
 
 function flattenDeep(array) {
