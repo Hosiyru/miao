@@ -26,7 +26,7 @@ class Complex {
   plus(c) {
     var real = this.real + c.real
     var imag = this.imag + c.imag
-    return new Complex(real, imag)   
+    return new Complex(real, imag)
   }
   minus(c) {
     var real = this.real - c.real
@@ -44,7 +44,7 @@ class Complex {
     var down = c.mul(helper)
     var real = up.real / down.real
     var imag = up.imag / down.real
-    return new Complex(real, imag)    
+    return new Complex(real, imag)
   }
 }
 
@@ -55,7 +55,7 @@ class LinkedList {
   }
   append(val) {
     var node = {
-      val: val, 
+      val: val,
       next: null
     }
     if (this.head == null) {
@@ -91,7 +91,7 @@ class LinkedList {
     }
     return p.val
   }
-  get size () {
+  get size() {
     var p = this.head
     var l = 0
     while (p) {
@@ -330,50 +330,50 @@ class MySet {
   }
 }
 
-class PriorityQueue{
-  constructor(initials = [], predicate = it => it){
-    if(typeof predicate !== 'function'){
+class PriorityQueue {
+  constructor(initials = [], predicate = it => it) {
+    if (typeof predicate !== 'function') {
       throw new TypeError('predicate must be a function, got: ' + predicate)
     }
     this._elements = []
     this._predicate = predicate
-    for(var val of initials){
+    for (var val of initials) {
       this.push(val)
     }
   }
-  heapUp(pos){
-    if(pos == 0){
+  heapUp(pos) {
+    if (pos == 0) {
       return
     }
     var predicate = this._predicate
     var parentPos = (pos - 1) >> 1
-    if(predicate(this._elements[pos]) > predicate(this._elements[parentPos])){
-      swap(this._elements,pos,parentPos)
+    if (predicate(this._elements[pos]) > predicate(this._elements[parentPos])) {
+      swap(this._elements, pos, parentPos)
       this.heapUp(parentPos)
     }
 
   }
-  heapDown(pos){
+  heapDown(pos) {
     var leftPos = 2 * pos + 1
     var rightPos = 2 * pos + 2
     var maxIndex = pos
     var predicate = this._predicate
-    if(leftPos < this._elements.length && predicate(this._elements[leftPos]) > predicate(this._elements[maxIndex])){
+    if (leftPos < this._elements.length && predicate(this._elements[leftPos]) > predicate(this._elements[maxIndex])) {
       maxIndex = leftPos
     }
-    if(rightPos < this._elements.length && predicate(this._elements[rightPos]) > predicate(this._elements[maxIndex])){
+    if (rightPos < this._elements.length && predicate(this._elements[rightPos]) > predicate(this._elements[maxIndex])) {
       maxIndex = rightPos
     }
-    if(maxIndex != pos){
-      swap(this._elements,maxIndex,pos)
+    if (maxIndex != pos) {
+      swap(this._elements, maxIndex, pos)
       this.heapDown(maxIndex)
     }
   }
-  pop(){
-    if(this._elements.length == 0){
+  pop() {
+    if (this._elements.length == 0) {
       return undefined
     }
-    if(this._elements.length == 1){
+    if (this._elements.length == 1) {
       return this._elements.pop()
     }
 
@@ -383,47 +383,127 @@ class PriorityQueue{
     this.heapDown(0)
     return result
   }
-  push(val){
+  push(val) {
     this._elements.push(val)
-    this.heapUp(this._elements.length -1)
+    this.heapUp(this._elements.length - 1)
     return this
   }
-  peek(){
+  peek() {
     return this._elements[0]
   }
-  get size (){
-   return this._elements.length
+  get size() {
+    return this._elements.length
   }
 }
-function heapSort(array){
+function heapSort(array) {
   var start = (array.length - 1) >> 1
-  for(var i= start ;i >= 0 ;i--){
-    heapDown(array,i)
+  for (var i = start; i >= 0; i--) {
+    heapDown(array, i)
   }
 
-  for(var i = array.length -1;i>0;i--){
-    swap(array,i,0)
-    heapDown(array,0,i)
+  for (var i = array.length - 1; i > 0; i--) {
+    swap(array, i, 0)
+    heapDown(array, 0, i)
   }
   return array
 }
-function heapDown(heap,pos,stop = heap.length){
+function heapDown(heap, pos, stop = heap.length) {
   var leftPos = 2 * pos + 1
   var rightPos = 2 * pos + 2
   var maxIndex = pos
-  if(leftPos < stop && heap[leftPos] > heap[maxIndex]){
+  if (leftPos < stop && heap[leftPos] > heap[maxIndex]) {
     maxIndex = leftPos
   }
-  if(rightPos < stop && heap[rightPos] > heap[maxIndex]){
+  if (rightPos < stop && heap[rightPos] > heap[maxIndex]) {
     maxIndex = rightPos
   }
-  if(maxIndex != pos){
-    swap(heap,maxIndex,pos)
-    heapDown(heap,maxIndex,stop)
+  if (maxIndex != pos) {
+    swap(heap, maxIndex, pos)
+    heapDown(heap, maxIndex, stop)
   }
 }
-function swap(array,i,j){
+function swap(array, i, j) {
   var t = array[i]
   array[i] = array[j]
   array[j] = t
+}
+
+// String.prototype.mymatch
+String.prototype.mymatch = function (re) {
+  if (typeof re == "string") re = new RegExp(re)
+  var str = this
+  var result = []
+  while (match = re.exec(str)) {
+    if (!re.global) return match
+    result.push(match[0])
+  }
+  return result
+}
+String.prototype.myreplace = function (re, replaceStr) {
+  if (typeof re == "string") re = new RegExp(re)
+  if (re.global) return this.myreplaceAll(re, replaceStr)
+  if (typeof replaceStr == "string") {
+    let s = replaceStr
+    replaceStr = e => s
+  }
+  let match
+  if (match = re.exec(this)) {
+    let end = match.index + match[0].length
+    let start = match.index
+    return this.slice(0, start) + replaceStr(this.slice(start, end)) + this.slice(end)
+  } else return this.toString()
+}
+String.prototype.myreplaceAll = function (re, replaceStr) {
+  if (typeof re == "string") re = new RegExp(re, "g")
+  if (!re.global) re = new RegExp(re.source, "g")
+  if (typeof replaceStr == "string") {
+    var s = replaceStr
+    replaceStr = e => s.replace(/\$(\d)/g, (m, index) => e[index])
+  }
+  let match
+  let last = 0
+  let str = ""
+  while (match = re.exec(this)) {
+    str += this.slice(last, match.index)
+    last = re.lastIndex
+    arr = match.filter(e => e)
+    if (match.length > 1) {
+      for (let index = 1; index < arr.length; index++) str += replaceStr(match, arr[index])
+    } else str += replaceStr(match)
+  }
+  str += this.slice(last)
+  return str
+}
+String.prototype.mysearch = function (re) {
+  if (typeof re == "string") re = new RegExp(re)
+  let match
+  if (match = re.exec(str)) return match.index
+  else return -1
+}
+RegExp.prototype.mytest = function (re) {
+  if (!re) {
+    return -1
+  }
+  if (typeof re == "string") re = new RegExp(re)
+  let string = this
+  let match = re.exec(string)
+  return match !== null
+}
+String.prototype.mysplit = function (re) {
+  if (typeof re === 'string') {
+    re = new RegExp(re, 'g')
+  }
+  if (!re.global) {
+    re = new RegExp(re.source, 'g' + re.flags)
+  }
+  re.lastIndex = 0
+  let result = []
+  let match
+  let lastLastIndex = 0
+  while ((match = re.exec(this))) {
+    result.push(this.slice(lastLastIndex, match.index), ...match.slice(1))
+    lastLastIndex = re.lastIndex
+  }
+  result.push(this.slice(lastLastIndex))
+  return result
 }
