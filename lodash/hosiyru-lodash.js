@@ -89,7 +89,7 @@ var hosiyru = {
         let token = str.slice(i, i + 4)
         if (token == 'null') {
           i += 4
-          return true
+          return null
         } else throw new SyntaxError(`在${i}位置遇到错误的token`)
       }
       return parseNumber()
