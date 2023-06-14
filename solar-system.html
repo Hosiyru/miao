@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .sun {
+      position: relative;
+      margin-left: 50%;
+      margin-top: 250px;
+      border-radius: 999px;
+      width: 80px;
+      height: 80px;
+      background-color: tomato;
+    }
+
+    .earth {
+      position: absolute;
+      border-radius: 999px;
+      width: 60px;
+      height: 60px;
+      margin-top: 10px;
+      margin-left: 10px;
+      background-color: blue;
+    }
+
+    .moon {
+      position: absolute;
+      border-radius: 999px;
+      width: 40px;
+      height: 40px;
+      margin-top: 10px;
+      margin-left: 10px;
+      background-color: gray;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sun">
+    <div class="earth">
+      <div class="moon"></div>
+    </div>
+  </div>
+  <script>
+    let 地球 = document.querySelector('.earth')
+    let 月亮 = document.querySelector('.moon')
+    let 角度 = 0
+    function animate(time) {
+      地球.style.top = Math.sin(角度) * 200 + 'px'
+      地球.style.left = Math.cos(角度) * 200 + 'px'
+      月亮.style.top = Math.sin(2 * 角度) * 60 + 'px'
+      月亮.style.left = Math.cos(2 * 角度) * 60 + 'px'
+      角度 += 0.005
+      requestAnimationFrame(animate)
+    }
+    requestAnimationFrame(animate)
+  </script>
+</body>
+
+</html>
