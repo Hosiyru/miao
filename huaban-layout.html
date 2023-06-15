@@ -7,34 +7,46 @@
   <title>Document</title>
   <style>
     * {
-      padding: 0;
-      margin: 0;
+      xbackground-color: rgba(0, 0, 0, 0.1);
+    }
+
+    html {
+      background-color: black;
+      overflow-y: scroll;
     }
 
     body {
-      background-color: rgba(0, 0, 0, .1);
+      margin: 10px;
     }
 
-    .box {
+    section {
       display: flex;
-      justify-content: space-between;
-      align-items: start;
-      gap: 20px;
-      margin: 0 auto;
+      gap: 10px;
+      align-items: flex-start;
+      margin: auto;
+    }
+
+    section div {
+      flex: 1;
     }
 
     img {
-      width: 200px;
-      margin-bottom: 20px;
       display: block;
+      margin-bottom: 10px;
+      /* box-shadow: 0 0 20px #999; */
+      outline: 1px solid white;
+      outline-offset: 1px;
+      position: relative;
+      transition: 0.3s;
     }
   </style>
 </head>
 
 <body>
-  <div class="box"></div>
+  <section>
+  </section>
   <script>
-    let imgs = [
+    var cats = [
       {
         "url": "photo-103450229.jpg",
         "fullUrl": "https://xieranmaya.github.io/images/cats/photo-103450229.jpg",
@@ -360,34 +372,92 @@
         "height": 1170
       }
     ]
+    cats = [...cats, ...cats]
+    cats = [...cats, ...cats]
+    cats = [...cats, ...cats]
+    cats = [...cats, ...cats]
+
+    var section = document.querySelector('section')
+    var prevWidth = 0
+
     function run() {
-      let box = document.querySelector('.box')
-      box.innerHTML = ''
-      let columnCount = Math.floor((window.innerWidth - 120) / 200)
-      columnCount = columnCount < 3 ? 3 : columnCount
-      box.style.width = columnCount * 200 + (columnCount - 1) * 20 + 'px'
+      console.time('layout')
 
-      for (let i = 0; i < columnCount; i++) box.append(document.createElement('div'))
-
-      let divs = [...document.querySelectorAll('.box div')]
-
-      for (let item of imgs) {
-        let div = divs.reduce((minDiv, item) => {
-          if (minDiv.offsetHeight > item.offsetHeight) return item
-          else return minDiv
-        })
-
-        let img = document.createElement('img')
-        img.src = item.fullUrl
-        img.height = item.height / item.width * 200
-        div.append(img)
+      if (window.innerWidth == prevWidth) {
+        return
+      } else {
+        prevWidth = window.innerWidth
       }
 
-    }
+      // 计算能够显示多少列
+      var columns = Math.floor(window.innerWidth / 180)
 
+      section.innerHTML = '' // 清空section元素
+
+      // 创建每列所需的div元素
+      for (var i = 0; i < columns; i++) {
+        section.append(document.createElement('div'))
+      }
+
+      var divs = [...section.querySelectorAll('div')]
+      var columnWidth = divs[0].offsetWidth
+      var divHeights = Array(columns).fill(0) // 记录每个div的高度
+      var divImgs = Array(columns).fill(0).map(it => [])
+
+      // debugger
+      for (var cat of cats) {
+        // 得到最"矮"的div元素,以往里面添加一张图片
+        var minDivHeight = Math.min(...divHeights)
+        var minIdx = divHeights.indexOf(minDivHeight)
+
+        var div = divs[minIdx]
+
+        var img = document.createElement('img')
+        img.src = cat.fullUrl
+        img.width = columnWidth
+        img.height = columnWidth * cat.height / cat.width
+
+        // 记录对应div的累计高度
+        divHeights[minIdx] += img.height + 10
+
+        divImgs[minIdx].push(img)
+      }
+
+      divImgs.forEach((imgs, idx) => {
+        divs[idx].append(...imgs)
+      })
+
+      console.timeEnd('layout')
+    }
+    var section = document.querySelector('section')
+    var z = 5
+    section.onclick = function (e) {
+      if (e.target.matches('img')) {
+        var img = e.target
+        if (img.style.transform == '') {
+          var box = img.getBoundingClientRect()
+          var cx = box.left + box.width / 2
+          var cy = box.top + box.height / 2
+          var vx = window.innerWidth / 2
+          var vy = window.innerHeight / 2
+          var movex = vx - cx
+          var movey = vy - cy
+          var zoomx = window.innerWidth / box.width
+          var zoomy = window.innerHeight / box.height
+
+          img.style.zIndex = z++
+          img.style.transform = `translate(${movex}px,${movey}px) scale(${Math.min(zoomx, zoomy)})`
+          img.style.boxShadow = '0 0 0 10000px black'
+        } else {
+          img.style.transform = ''
+          img.style.boxShadow = ''
+        }
+      }
+    }
     run()
 
     window.onresize = run
+
   </script>
 </body>
 
