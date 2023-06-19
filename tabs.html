@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Tabs Demo</title>
+  <style>
+    .tabs {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .tab {
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    .tab.active {
+      background-color: #f1f1f1;
+    }
+
+    .content {
+      display: none;
+      padding: 10px;
+      background-color: #f1f1f1;
+    }
+
+    .content.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tabs">
+    <div class="tab active" onclick="openTab('tab1')">Tab 1</div>
+    <div class="tab" onclick="openTab('tab2')">Tab 2</div>
+    <div class="tab" onclick="openTab('tab3')">Tab 3</div>
+  </div>
+  <div class="content active" id="tab1">This is tab 1 content</div>
+  <div class="content" id="tab2">This is tab 2 content</div>
+  <div class="content" id="tab3">This is tab 3 content</div>
+  <script>
+    function openTab(tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].className = tabcontent[i].className.replace(" active", "");
+      }
+      tablinks = document.getElementsByClassName("tab");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).className += " active";
+      event.currentTarget.className += " active";
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .fire {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+    }
+  </style>
+</head>
+
+<body>
+</body>
+<script>
+  for (let i = 0; i < 3; i++) {
+    let fire = document.createElement('span')
+    fire.className = 'fire'
+    document.body.append(fire)
+  }
+  var cx, cy
+  var fires = document.querySelectorAll('.fire')
+  window.addEventListener('mousemove', e => {
+    cx = e.clientX
+    cy = e.clientY
+  })
+
+  requestAnimationFrame(function animate(time) {
+    var angle0 = time / 150
+    fires[0].style.left = `${Math.sin(angle0) * 60 + cx}px`
+    fires[0].style.top = `${Math.cos(angle0) * 60 + cy}px`
+    fires[0].style.backgroundColor = `hsl(${angle0},85%,85%)`
+    var angle1 = angle0 + 2 * Math.PI / 3
+    fires[1].style.left = `${Math.sin(angle1) * 60 + cx}px`
+    fires[1].style.top = `${Math.cos(angle1) * 60 + cy}px`
+    fires[1].style.backgroundColor = `hsl(${angle1},85%,85%)`
+    var angle2 = angle1 + 2 * Math.PI / 3
+    fires[2].style.left = `${Math.sin(angle2) * 60 + cx}px`
+    fires[2].style.top = `${Math.cos(angle2) * 60 + cy}px`
+    fires[2].style.backgroundColor = `hsl(${angle2},85%,85%)`
+    requestAnimationFrame(animate)
+  })
+</script>
+
+</html>

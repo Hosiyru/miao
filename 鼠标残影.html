@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .mouseShadow {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+    }
+  </style>
+</head>
+
+<body>
+
+</body>
+<script>
+  var spans = [], mx, my, prevTime = 0, r = 255, g = 0, b = 0
+  for (let i = 0; i < 10; i++) spans.push(document.createElement('span'))
+
+  window.addEventListener('mousemove', e => {
+    mx = e.clientX
+    my = e.clientY
+
+    if (Date.now() - prevTime >= 16) {
+      prevTime = Date.now()
+
+      var mouseShadow = document.createElement('span')
+      mouseShadow.className = 'mouseShadow'
+
+      mouseShadow.style.left = mx + 'px'
+      mouseShadow.style.top = my + 'px'
+      mouseShadow.style.backgroundColor = `rgb(${r},${g},${b})`
+      r -= 20
+      g += 20
+      b += 25
+      if (r < 0) r = 255
+      if (g > 255) g = 0
+      if (b > 255) b = 0
+      document.body.append(mouseShadow)
+      setTimeout(() => {
+        document.body.removeChild(mouseShadow)
+      }, 16 * 8)
+    }
+  })
+</script>
+
+</html>
