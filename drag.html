@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .draggable {
+      position: fixed;
+      width: 100px;
+      height: 100px;
+    }
+
+    .draggable h1.window-title {
+      margin: 0;
+      font-size: 14px;
+      text-align: center;
+      background-color: #fff8;
+      cursor: move;
+    }
+
+    .draggable .resizer {
+      cursor: nwse-resize;
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      bottom: -2.5px;
+      right: -2.5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="draggable" style="background-color: aquamarine; width:100px;height:60px;left:0;top:0;">
+    <div>
+      <h1 class="window-title">窗口1</h1>
+      <span class="resizer"></span>
+    </div>
+  </div>
+  <div class="draggable" style="background-color: coral; width:100px;height:60px;left:0;top:0;">
+    <h1 class="window-title">窗口2</h1>
+    <span class="resizer"></span>
+  </div>
+  <div class="draggable" style="background-color: palegreen; width:100px;height:60px;left:0;top:0;">
+    <h1 class="window-title">窗口3</h1>
+    <span class="resizer"></span>
+  </div>
+</body>
+<script>
+  let draggable = document.querySelectorAll('.draggable')
+  let startX, startY, elStartX, elStartY, elStartWidth, elStartHeight, z = 1, currrentAction = 'resize'
+  window.addEventListener('mousedown', e => {
+    if (e.target.matches('.draggable, .draggable *')) e.target.closest('.draggable').style.zIndex = z++
+    if (e.target.matches('.draggable h1.window-title')) {
+      e.preventDefault()
+      el = e.target.closest('.draggable')
+      startX = e.clientX
+      startY = e.clientY
+      elStartX = parseFloat(el.style.left)
+      elStartY = parseFloat(el.style.top)
+      window.addEventListener('mousemove', onMove)
+    }
+    if (e.target.matches('.draggable .resizer')) {
+      e.preventDefault()
+      el = e.target.closest('.draggable')
+      elStartWidth = parseFloat(el.style.width)
+      elStartHeight = parseFloat(el.style.height)
+      startX = e.clientX
+      startY = e.clientY
+      window.addEventListener('mousemove', onResize)
+    }
+  })
+  function onMove(e) {
+    if (e.which == 0 || e.buttons == 0) window.removeEventListener('mousemove', onMove)
+    else {
+      let moveX = e.clientX - startX
+      let moveY = e.clientY - startY
+      let left = elStartX + moveX
+      let top = elStartY + moveY
+      if (moveX < 30) left = 0
+      if (moveX > window.innerWidth - el.offsetWidth - 30) left = window.innerWidth - el.offsetWidth
+      if (moveY < 30) top = 0
+      if (moveY > window.innerHeight - el.offsetHeight - 30) top = window.innerWidth - el.offsetHeight
+      if (left < 0) left = 0
+      if (left > window.innerWidth - el.offsetWidth) left = window.innerWidth - el.offsetWidth
+      if (top < 0) top = 0
+      if (top > window.innerHeight - el.offsetHeight) top = window.innerHeight - el.offsetHeight
+      el.style.left = left + 'px'
+      el.style.top = top + 'px'
+    }
+  }
+  function onResize(e) {
+    if (e.which == 0 || e.buttons == 0) window.removeEventListener('mousemove', onResize)
+    else {
+      let moveX = e.clientX - startX
+      let moveY = e.clientY - startY
+      let width = elStartWidth + moveX
+      let height = elStartHeight + moveY
+      if (width < 100) width = 100
+      if (height < 60) height = 60
+
+      el.style.width = width + 'px'
+      el.style.height = height + 'px'
+    }
+  }
+</script>
+
+</html>
