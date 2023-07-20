@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>下载</button>
+  <button>下载4</button>
+  <script>
+    var button = document.querySelectorAll('button')
+    var cats
+    download('https://xieranmaya.github.io/images/cats/cats.json', (data) => {
+      cats = JSON.parse(data).map((it, idx) => it.fullUrl)
+    })
+
+    button[0].addEventListener('click', () => {
+      let cat = cats.pop()
+      download(cat, callBack)
+    })
+    button[1].addEventListener('click', () => {
+      for (let i = 0; i < 4; i++) {
+        let cat = cats.pop()
+        download(cat, callBack)
+      }
+    })
+    function callBack(data) {
+      let nextCat = cats.pop()
+      if (nextCat) {
+        download(nextCat, callBack)
+      }
+    }
+    function download(url, callback) {
+      var xhr = new XMLHttpRequest()
+      xhr.open('get', url)
+      xhr.addEventListener('load', () => {
+        callback(xhr.responseText)
+      })
+      xhr.send()
+    }
+  </script>
+</body>
+
+</html>
